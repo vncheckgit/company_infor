@@ -81,66 +81,133 @@
     </div>
     <h1 style="text-align: center; margin-top: 2vh;">BIỂU MẪU THU THẬP THÔNG TIN KHÁCH HÀNG, ĐỐI TÁC</h1>
     <div class="container" style="margin-bottom: 10vh; margin-top: 10vh;">
-        <form id="multi-section-form" method="post"
-            action="https://script.google.com/macros/s/AKfycbyYrtZ3PzRkxDM1DBmrA49LiifUvAh-93l71VQs_qUvphUNAmBjLQ-_4nMAa2XM7-cP/exec">
-            <div class="mb-3">
-                <label for="name" class="form-label">Họ và tên:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="organization" class="form-label">Tổ chức:</label>
-                <input type="text" class="form-control" id="organization" name="organization" required>
-            </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label">Số điện thoại:</label>
-                <input type="text" class="form-control" id="phone" name="phone" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="address" class="form-label">Địa chỉ:</label>
-                <input type="address" class="form-control" id="address" name="address" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label d-block">Tên chủng loại:</label>
-                <div style="display: flex; justify-content: space-between;">
-                    <div class="form-check form-check-inline" style="flex: 1;">
-                        <input class="form-check-input" type="radio" name="category" id="plant" value="cây trồng"
-                            required>
-                        <label class="form-check-label" for="plant">Cây trồng</label>
-                    </div>
-                    <div class="form-check form-check-inline" style="flex: 1;">
-                        <input class="form-check-input" type="radio" name="category" id="animal" value="vật nuôi"
-                            required>
-                        <label class="form-check-label" for="animal">Vật nuôi</label>
-                    </div>
-                    <div class="form-check form-check-inline" style="flex: 1;">
-                        <input class="form-check-input" type="radio" name="category" id="product" value="sản phẩm"
-                            required>
-                        <label class="form-check-label" for="product">Sản phẩm</label>
-                    </div>
+        <form id="multi-section-form" method="post">
+            <div class="section active" id="section1">
+                <h2>THÔNG TIN LIÊN HỆ</h2>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Họ và tên:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>               
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="organization" class="form-label">Tên đơn vị:</label>
+                    <input type="text" class="form-control" id="organization" name="organization" required>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary" onclick="validateNext(2)">Tiếp theo</button>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="product" class="form-label">Sản phẩm:</label>
-                <input type="product" class="form-control" id="product" name="address" required>
+            <div class="section" id="section2">
+                <br>
+                <h2>THÔNG TIN SẢN XUẤT</h2>
+                <br>
+                <div class="mb-3">
+                    <label class="form-label d-block">Tên chủng loại:</label>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div class="form-check form-check-inline" style="flex: 1;">
+                            <input class="form-check-input" type="radio" name="category" id="plant" value="cây trồng"
+                                required>
+                            <label class="form-check-label" for="plant">Cây trồng</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="flex: 1;">
+                            <input class="form-check-input" type="radio" name="category" id="animal" value="vật nuôi"
+                                required>
+                            <label class="form-check-label" for="animal">Vật nuôi</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="flex: 1;">
+                            <input class="form-check-input" type="radio" name="category" id="product" value="sản phẩm"
+                                required>
+                            <label class="form-check-label" for="product">Sản phẩm</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Sản lượng:</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity" required>
+                </div>
+                <div class="mb-3">
+                    <label for="unit" class="form-label">Đơn vị tính:</label>
+                    <select class="form-select" id="unit" name="unit" required>
+                        <option value="Kg">Kg</option>
+                        <option value="Tấn">Tấn</option>
+                        <option value="Hộp">Hộp</option>
+                        <option value="Sản phẩm">Sản phẩm</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label d-block">Thời gian:</label>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div class="form-check form-check-inline" style="flex: 1;">
+                            <input class="form-check-input" type="radio" name="time" id="month" value="Tháng" required>
+                            <label class="form-check-label" for="month">Tháng</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="flex: 1;">
+                            <input class="form-check-input" type="radio" name="time" id="year" value="Năm" required>
+                            <label class="form-check-label" for="year">Năm</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Địa điểm:</label>
+                    <input type="text" class="form-control" id="location" name="location" required>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" onclick="previousSection(2)">Quay lại</button>
+                    <button type="submit" class="btn btn-success ms-2">Xác nhận</button>
+                </div>
             </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Xác nhận</button>
-            </div>
-            <br>
-            <br>
         </form>
     </div>
+
+    <script>
+        function nextSection(sectionNumber) {
+            const currentSection = document.querySelector('.section.active');
+            currentSection.classList.remove('active');
+
+            const nextSection = document.querySelector(`#section${sectionNumber}`);
+            nextSection.classList.add('active');
+        }
+
+        function previousSection(sectionNumber) {
+            const currentSection = document.querySelector('.section.active');
+            currentSection.classList.remove('active');
+
+            const previousSection = document.querySelector(`#section${sectionNumber}`);
+            previousSection.classList.add('active');
+        }
+
+        function validateNext(nextSectionNumber) {
+            const currentSection = document.querySelector('.section.active');
+            const inputs = currentSection.querySelectorAll('input, select');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (input.checkValidity() === false) {
+                    isValid = false;
+                    input.reportValidity();
+                }
+            });
+
+            if (isValid) {
+                nextSection(nextSectionNumber);
+            }
+        }
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("multi-section-form").addEventListener("submit", function (event) {
                 event.preventDefault();
                 var formData = new FormData(event.target);
-                fetch('https://script.google.com/macros/s/AKfycbyYrtZ3PzRkxDM1DBmrA49LiifUvAh-93l71VQs_qUvphUNAmBjLQ-_4nMAa2XM7-cP/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbyLVYXAsROYCaVfz4WoEoNjnGslfaQZzA1VruDAaTlNfhtTzvr30Kjjze1Fy00VXDXdyQ/exec', {
                     method: 'POST',
                     body: formData
                 })
